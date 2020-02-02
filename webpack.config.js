@@ -1,4 +1,4 @@
-const createWebpackConfig = require("@nice/nice-scripts");
+const createWebpackConfig = require("ky-nice-scripts");
 
 const webpackConfig = createWebpackConfig(__dirname);
 

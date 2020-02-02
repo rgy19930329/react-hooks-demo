@@ -1,4 +1,4 @@
-import { HOCAsync } from "@nice/nice-ui";
+import { HOCAsync } from "ky-nice-ui";
 
 export default [
   {

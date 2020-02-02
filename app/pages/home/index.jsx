@@ -6,7 +6,7 @@
 
 import "./index.less";
 import React from "react";
-import { Section } from "@nice/nice-ui";
+import { Section } from "ky-nice-ui";
 
 let list = [];
 const req = require.context("@pages", true, /^\.\/[^_][\w-]+\/index\.jsx?$/);

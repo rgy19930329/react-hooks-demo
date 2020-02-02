@@ -5,7 +5,7 @@
  */
 
 import React, { useState } from "react";
-import { Section } from "@nice/nice-ui";
+import { Section } from "ky-nice-ui";
 import { Button } from "antd";
  
 function Counter({ initialCount }) {

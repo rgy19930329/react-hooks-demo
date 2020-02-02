@@ -6,7 +6,7 @@
 
 import "./index.less";
 import React from "react";
-import { fetch } from "@nice/nice-utils";
+import { fetch } from "ky-nice-utils";
 
 export default class Detail extends React.Component {
 
