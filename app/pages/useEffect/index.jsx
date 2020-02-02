@@ -5,11 +5,8 @@
  */
 
 import React, { useState, useEffect } from "react";
-import { 
-	Section, 
-	HOCDebounce, 
-	fetch 
-} from "@nice/nice-ui";
+import { Section, HOCDebounce } from "@nice/nice-ui";
+import { fetch } from "@nice/nice-utils";
 import { Button, Spin, Input } from "antd";
 import debounce from "lodash.debounce";
 

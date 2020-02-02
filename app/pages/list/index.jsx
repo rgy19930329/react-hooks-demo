@@ -5,7 +5,8 @@
  */
 
 import React from "react";
-import { Section, fetch } from "@nice/nice-ui";
+import { Section } from "@nice/nice-ui";
+import { fetch } from "@nice/nice-utils";
 
 export default class List extends React.Component {
 
@@ -22,8 +23,8 @@ export default class List extends React.Component {
   }
 
   dataLoad = async () => {
-    let result = await fetch("/yapi/list");
-    const list = result.data || [];
+    let result = await fetch("/sug", { code: "utf-8", q: "钱包" });
+    const list = result.result || [];
     this.setState({ list });
   }
 
@@ -32,11 +33,11 @@ export default class List extends React.Component {
     return (
       <div className="page-list-wrapper">
         <h1>List</h1>
-        <Section title="系统配置-列表">
-          {list.map(item => {
+        <Section title="推荐列表">
+          {list.map((item, index) => {
             return (
-              <div key={item.email}>
-                <a href={`#/list/detail/${item.email}`}>{item.email}</a>
+              <div key={index}>
+                <a href={`#/list/detail/${item[1]}`}>{item[0]}</a>
               </div>
             )
           })}

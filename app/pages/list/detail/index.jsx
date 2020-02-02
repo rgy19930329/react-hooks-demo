@@ -6,7 +6,7 @@
 
 import "./index.less";
 import React from "react";
-import { fetch } from "@nice/nice-ui";
+import { fetch } from "@nice/nice-utils";
 
 export default class Detail extends React.Component {
 
@@ -15,13 +15,13 @@ export default class Detail extends React.Component {
 
     const {
       match: {
-        params: { email }
+        params: { f }
       }
     } = props;
 
     this.state = {
-      data: {},
-      email,
+      data: [],
+      f,
     }
   }
 
@@ -30,20 +30,21 @@ export default class Detail extends React.Component {
   }
 
   dataLoad = async () => {
-    let result = await fetch("/yapi/detail");
-    this.setState({ data: result.data });
+    let result = await fetch("/sug", { code: "utf-8", q: "钱包" });
+    let r = result.result.filter(item => item[1] == this.state.f);
+    if (r.length > 0) {
+      this.setState({ data: r[0] });
+    }
   }
 
   render() {
-    const { data, email } = this.state;
+    const { data } = this.state;
     return (
       <div className="page-detail-wrapper">
         <h1>Detail</h1>
         <div>
-          <div>email: {email}</div>
-          <div>name: {data.name}</div>
-          <div>age: {data.age}</div>
-          <div>content: {data.content}</div>
+          <div>{data[0]}</div>
+          <div>{data[1]}</div>
         </div>
       </div>
     )
